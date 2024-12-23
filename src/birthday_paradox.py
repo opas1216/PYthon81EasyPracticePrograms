@@ -1,5 +1,4 @@
 import datetime, random
-from http.cookiejar import MONTHS
 
 
 def getBrithdays(numberOfBirthdays: int):
