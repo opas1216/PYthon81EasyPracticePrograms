@@ -16,6 +16,7 @@ except ImportError:
     sys.exit()
 
 WIDTH, HEIGHT = bext.size()
+print("WIDTH:", WIDTH, "HEIGHT:", HEIGHT)
 
 WIDTH -= 1
 
@@ -55,6 +56,7 @@ def main():
             bext.goto(logo[X], logo[Y])
             print('   ',end='') # (!) Try commenting this line out.
 
+
             originalDirection = logo[DIR]
 
             # See if the logo bounces off the corners
@@ -86,15 +88,15 @@ def main():
 
             # See if the logo bounces off the top edge
             elif logo[Y] == 0 and logo[DIR] == UP_LEFT:
-                logo[DIR] == DOWN_LEFT
+                logo[DIR] = DOWN_LEFT
             elif logo[Y] == 0 and logo[DIR] == UP_RIGHT:
-                logo[DIR] == DOWN_RIGHT
+                logo[DIR] = DOWN_RIGHT
 
             # See if the logo bounces off the bottom edge
             elif logo[Y] == (HEIGHT - 1) and logo[DIR] == DOWN_LEFT:
-                logo[DIR] == UP_LEFT
+                logo[DIR] = UP_LEFT
             elif logo[Y] == (HEIGHT - 1) and logo[DIR] == DOWN_RIGHT:
-                logo[DIR] == UP_RIGHT
+                logo[DIR] = UP_RIGHT
 
             if logo[DIR] != originalDirection:
                 # Change color with the logo bounces
@@ -124,6 +126,7 @@ def main():
                 bext.goto(logo[X], logo[Y])
                 bext.fg(logo[COLOR])
                 print('DVD', end='')
+
 
             bext.goto(0, 0)
 
