@@ -15,7 +15,8 @@ except ImportError:
           'https://pypi.org/project/Bext/')
     sys.exit()
 
-WIDTH, HEIGHT = bext.size()
+# WIDTH, HEIGHT = bext.size()
+WIDTH, HEIGHT = 10, 5
 print("WIDTH:", WIDTH, "HEIGHT:", HEIGHT)
 
 WIDTH -= 1
