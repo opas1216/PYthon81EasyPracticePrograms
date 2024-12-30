@@ -28,3 +28,54 @@ while True:
         break
 
     print('Please enter a number for 1 to 12.')
+
+
+
+def getCalendarFor(year, month):
+    calText = ''
+
+    calText += (' ' * 34) + MONTHS[month - 1] + ' ' + str(year) + '\n'
+
+    calText += '...Sunday.....Monday....Tuesday...Wednesday...Thursday....Friday....Saturday..\n'
+
+    weekSeparator = ('+----------' * 7) + '+\n'
+
+    blankRow = ('|          ' * 7) + '|\n'
+
+    currentDate = datetime.date(year, month, 1)
+
+    # check whether the current date is Sunday, Monday:0, Tuesday: 1, etc.
+    while currentDate.weekday() != 6:
+        currentDate -= datetime.timedelta(days=1)
+
+    while True:
+        calText += weekSeparator
+
+        dayNumberRow = ''
+        for i in range(7):
+            dayNumberLable = str(currentDate.day).rjust(2)
+            dayNumberRow += '|' + dayNumberLable + (' ' * 8)
+            currentDate += datetime.timedelta(days=1)
+        dayNumberRow += '|\n'
+
+
+        calText += dayNumberRow
+        # for i in range(3):
+        #     calText += blankRow
+        calText += blankRow * 3
+
+        if currentDate.month != month:
+            break
+
+    calText += weekSeparator
+    return calText
+
+
+calText = getCalendarFor(year, month)
+print(calText)
+
+calendarFilename = f'calendar_{year}_{month}.txt'
+with open(calendarFilename, 'w') as fileObj:
+    fileObj.write(calText)
+
+print('Saved to ' + calendarFilename)
