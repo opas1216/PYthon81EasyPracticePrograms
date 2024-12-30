@@ -1,4 +1,4 @@
-# PYthon81EasyPracticePrograms
+# Python81EasyPracticePrograms
 Initial Commit
 
 
